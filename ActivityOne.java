@@ -1,6 +1,5 @@
 package course.labs.activitylab;
 
-/*  test git */
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
