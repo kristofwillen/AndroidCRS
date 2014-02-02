@@ -26,10 +26,10 @@ public class ActivityOne extends Activity {
 	// onResume(), called mCreate, etc.
 	// You will need to increment these variables' values when their
 	// corresponding lifecycle methods get called
-    private int countOnStart   = 0;
-    private int countOnRestart = 0;
-    private int countOnCreate  = 0;
-    private int countOnResume  = 0;
+    private int mStart   = 0;
+    private int mRestart = 0;
+    private int mCreate  = 0;
+    private int mResume  = 0;
 
 
 	// DONE: Create variables for each of the TextViews, called
@@ -81,13 +81,13 @@ public class ActivityOne extends Activity {
 		
 		}
 
-		// TODO: Emit LogCat message
-
+		// DONE: Emit LogCat message
+        Log.i(TAG,"Entered the onCreate() method");
 
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface via the displayCounts() method
-
+		mCreate += 1;
 
 
 	}
@@ -98,13 +98,13 @@ public class ActivityOne extends Activity {
 	public void onStart() {
 		super.onStart();
 
-		// TODO: Emit LogCat message
-
+		// DONE: Emit LogCat message
+		Log.i(TAG,"Entered the onStart() method");
 
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
-
+        mStart += 1;
 
 	}
 
@@ -113,12 +113,12 @@ public class ActivityOne extends Activity {
 		super.onResume();
 
 		// TODO: Emit LogCat message
-
+		Log.i(TAG,"Entered the onResume() method");
 
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
-
+        mResume += 1;
 
 	}
 
@@ -126,29 +126,29 @@ public class ActivityOne extends Activity {
 	public void onPause() {
 		super.onPause();
 
-		// TODO: Emit LogCat message
-
+		// DONE: Emit LogCat message
+		Log.i(TAG,"Entered the onPause() method");
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
 
-		// TODO: Emit LogCat message
-
+		// DONE: Emit LogCat message
+		Log.i(TAG,"Entered the onStop() method");
 	}
 
 	@Override
 	public void onRestart() {
 		super.onRestart();
 
-		// TODO: Emit LogCat message
-
+		// DONE: Emit LogCat message
+		Log.i(TAG,"Entered the onRestart() method");
 
 		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
-
+        mRestart += 1;
 
 
 	}
@@ -157,8 +157,8 @@ public class ActivityOne extends Activity {
 	public void onDestroy() {
 		super.onDestroy();
 
-		// TODO: Emit LogCat message
-
+		// DONE: Emit LogCat message
+		Log.i(TAG,"Entered the onDestroy() method");
 
 	}
 
