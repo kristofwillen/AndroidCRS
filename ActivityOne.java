@@ -11,10 +11,18 @@ import android.widget.TextView;
 
 public class ActivityOne extends Activity {
 
-	private static final String RESTART_KEY = "restart";
-	private static final String RESUME_KEY = "resume";
-	private static final String START_KEY = "start";
-	private static final String CREATE_KEY = "create";
+	private static final String RESTART_KEY   = "Entered the onRestart() method";
+	private static final String RESUME_KEY    = "Entered the Resume() method";
+	private static final String START_KEY     = "Entered the Start() method";
+	private static final String CREATE_KEY    = "Entered the Create() method";
+	private static final String PAUSE_KEY     = "Entered the Pause() method";
+	private static final String DESTROY_KEY   = "Entered the Destroy() method";
+	private static final String STOP_KEY      = "Entered the Stop() method";
+	
+	private static final String CREATE_STATE  = "";
+	private static final String START_STATE   = "";
+	private static final String RESTART_STATE = "";
+	private static final String RESUME_STATE  = "";
 
 	// String for LogCat documentation
 	private final static String TAG = "Lab-ActivityOne";
@@ -58,15 +66,15 @@ public class ActivityOne extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO:
+				// DONE:
 				// Launch Activity Two
 				// Hint: use Context's startActivity() method
 
 				// Create an intent stating which Activity you would like to start
-
+				Intent myIntent = new Intent(ActivityOne.this, ActivityTwo.class);
 				
 				// Launch the Activity using the intent
-
+				ActivityOne.this.startActivity(myIntent);
 			
 			}
 		});
@@ -74,21 +82,23 @@ public class ActivityOne extends Activity {
 		// Check for previously saved state
 		if (savedInstanceState != null) {
 
-			// TODO:
+			// DONE:
 			// Restore value of counters from saved state
 			// Only need 4 lines of code, one for every count variable
-			
-		
+			mCreate = savedInstanceState.getInt(CREATE_STATE);
+			mStart = savedInstanceState.getInt(START_STATE);
+			mRestart = savedInstanceState.getInt(RESTART_STATE);
+			mResume = savedInstanceState.getInt(RESUME_STATE);
 		}
 
 		// DONE: Emit LogCat message
-        Log.i(TAG,"Entered the onCreate() method");
+        Log.i(TAG,CREATE_KEY);
 
-		// TODO:
+		// DONE:
 		// Update the appropriate count variable
 		// Update the user interface via the displayCounts() method
 		mCreate += 1;
-
+        displayCounts();
 
 	}
 
@@ -99,27 +109,27 @@ public class ActivityOne extends Activity {
 		super.onStart();
 
 		// DONE: Emit LogCat message
-		Log.i(TAG,"Entered the onStart() method");
+		Log.i(TAG,START_KEY);
 
-		// TODO:
+		// DONE:
 		// Update the appropriate count variable
 		// Update the user interface
         mStart += 1;
-
+        displayCounts();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
 
-		// TODO: Emit LogCat message
-		Log.i(TAG,"Entered the onResume() method");
+		// DONE: Emit LogCat message
+		Log.i(TAG,RESUME_KEY);
 
-		// TODO:
+		// DONE:
 		// Update the appropriate count variable
 		// Update the user interface
         mResume += 1;
-
+        displayCounts();
 	}
 
 	@Override
@@ -127,7 +137,7 @@ public class ActivityOne extends Activity {
 		super.onPause();
 
 		// DONE: Emit LogCat message
-		Log.i(TAG,"Entered the onPause() method");
+		Log.i(TAG,PAUSE_KEY);
 	}
 
 	@Override
@@ -135,7 +145,7 @@ public class ActivityOne extends Activity {
 		super.onStop();
 
 		// DONE: Emit LogCat message
-		Log.i(TAG,"Entered the onStop() method");
+		Log.i(TAG,STOP_KEY);
 	}
 
 	@Override
@@ -143,13 +153,13 @@ public class ActivityOne extends Activity {
 		super.onRestart();
 
 		// DONE: Emit LogCat message
-		Log.i(TAG,"Entered the onRestart() method");
+		Log.i(TAG,"Entered the Activity1.onRestart() method");
 
-		// TODO:
+		// DONE:
 		// Update the appropriate count variable
 		// Update the user interface
         mRestart += 1;
-
+        displayCounts();
 
 	}
 
@@ -158,21 +168,21 @@ public class ActivityOne extends Activity {
 		super.onDestroy();
 
 		// DONE: Emit LogCat message
-		Log.i(TAG,"Entered the onDestroy() method");
+		Log.i(TAG,DESTROY_KEY);
 
 	}
 
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-		// TODO:
+		// DONE:
 		// Save state information with a collection of key-value pairs
 		// 4 lines of code, one for every count variable
-
-
-
-
-
-
+		savedInstanceState.putInt(START_STATE, mStart);
+		savedInstanceState.putInt(RESTART_STATE, mRestart);
+		savedInstanceState.putInt(RESUME_STATE, mResume);
+		savedInstanceState.putInt(CREATE_STATE, mCreate);
+		
+		super.onSaveInstanceState(savedInstanceState);
 	}
 	
 	// Updates the displayed counters
@@ -185,4 +195,3 @@ public class ActivityOne extends Activity {
 	
 	}
 }
-
