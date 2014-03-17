@@ -261,11 +261,11 @@ public class CreateStoryActivity extends StoryActivityBase {
 		
 		// DONE - Set the imagePath for this image file using the pre-made function
 		// getOutputMediaFile to create a new filename for this specific image;
-		Uri name = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+		fragment.imagePath = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 		
 		// DONE - Add the filename to the Intent as an extra. Use the Intent-extra name
 		// from the MediaStore class, EXTRA_OUTPUT
-		CameraIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, name);
+		CameraIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fragment.imagePath);
 		
 		
 		// DONE - Start a new activity for result, using the new intent and the request
